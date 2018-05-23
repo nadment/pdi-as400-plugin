@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <echo message="Looking for local PDI installation in C:\pentaho\data-integration"/>
+  <mkdir dir="C:\pentaho\data-integration/plugins/pdi-extension-plugin"/>
+  <copy todir="C:\pentaho\data-integration/plugins/pdi-extension-plugin">
+    <fileset includes="pdi-extension-as400-plugin-8.0-SNAPSHOT.zip" dir="as400/assemblies/plugin/target"/>
+  </copy>
+  <echo message="Installed the plugin in PDI. To test, please restart Spoon."/>
+</target>
+</project>
