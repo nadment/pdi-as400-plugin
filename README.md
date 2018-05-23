@@ -2,10 +2,6 @@
 
 This plugin provide PDI job entrie for executing a AS/400 CL Commands.
 
-# How to install
-
-Use marketplace from spoon.
-
 # System Requirements
 
 Pentaho Data Integration 8.0 or above
