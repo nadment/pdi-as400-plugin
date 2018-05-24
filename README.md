@@ -22,3 +22,7 @@ Pentaho Data Integration 8.0 or above
 # Usage
 
 TODO:
+
+# License
+
+Licensed under the Apache License, Version 2.0. See LICENSE.txt for more information.
