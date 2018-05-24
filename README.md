@@ -1,6 +1,7 @@
-# Overview
+# Overview  #
 
 This plugin provide PDI job entrie for executing a AS/400 CL Commands.
+![ref1]:/core/src/main/resources/as400command.svg
 
 # System Requirements
 
@@ -26,3 +27,5 @@ TODO:
 # License
 
 Licensed under the Apache License, Version 2.0. See LICENSE.txt for more information.
+
+
