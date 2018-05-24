@@ -6,16 +6,16 @@
 
 	<parent>
 		<groupId>org.pentaho.di.plugins</groupId>
-		<artifactId>pdi-extension-plugin</artifactId>
+		<artifactId>pdi-plugins</artifactId>
 		<version>8.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>pdi-extension-as400</artifactId>	
+	<artifactId>pdi-as400</artifactId>	
 	<packaging>pom</packaging>
-	<name>PDI Extension AS400</name>
+	<name>PDI AS400</name>
 
 	<properties>
-		<project.pluginId>pdi-extension-as400</project.pluginId>
+		<project.pluginId>pdi-as400</project.pluginId>
 	</properties>
 
 	<modules>
@@ -114,4 +114,8 @@
     </dependencies>
 </dependencyManagement>
 	
+ <scm>
+ 	<developerConnection>Nicolas ADMENT</developerConnection>
+ 	<url>https://github.com/nadment/pdi-as400</url>
+ </scm>
 </project>
