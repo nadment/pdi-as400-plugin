@@ -1,7 +1,7 @@
 # Overview #
 
 This plugin provide PDI job entrie for executing a AS/400 CL Commands.
-![ref1] (/core/src/main/resources/as400command.svg)
+![icon] (core/src/main/resources/as400command.svg)
 
 # System Requirements #
 

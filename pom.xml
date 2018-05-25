@@ -5,15 +5,15 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
- 		<groupId>org.pentaho</groupId>
-		<artifactId>pentaho-ce-jar-parent-pom</artifactId>
+		<groupId>org.pentaho.di.plugins</groupId>
+    	<artifactId>pdi-plugins</artifactId>
 		<version>8.0-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>pdi-as400</artifactId>
 	<packaging>pom</packaging>
 	<name>PDI AS400</name>
-	
+
 	<developers>
 		<developer>
 			<name>Nicolas ADMENT</name>
@@ -23,26 +23,12 @@
 			</roles>
 		</developer>
 	</developers>
-	
+
 	<properties>
 		<project.pluginId>pdi-as400</project.pluginId>
 		<pdi.version>8.0-SNAPSHOT</pdi.version>
 		<pdi.home>C:\pentaho\data-integration</pdi.home>
-
-		<!-- Pentaho dependencies -->
-		<org.eclipse.swt.version>4.6</org.eclipse.swt.version>
-		<org.eclipse.jface.version>3.3.0-I20070606-0010</org.eclipse.jface.version>
-
-		<!-- Third-party dependencies -->
-		<commons-lang.version>2.6</commons-lang.version>
-		<commons-vfs2.version>2.1-20150824</commons-vfs2.version>
-
-		<build.revision>${project.version}</build.revision>
-		<timestamp>${maven.build.timestamp}</timestamp>
-		<build.description>${project.description}</build.description>
-		<maven.build.timestamp.format>yyyy/MM/dd hh:mm</maven.build.timestamp.format>		
 	</properties>
-
 
 	<modules>
 		<module>core</module>
@@ -50,7 +36,14 @@
 	</modules>
 
 	<scm>
-		<developerConnection>Nicolas ADMENT</developerConnection>
+		<developerConnection>scm:git:git@github.com:nadment/pdi-as400</developerConnection>
 		<url>https://github.com/nadment/pdi-as400</url>
 	</scm>
+
+	<repositories>
+		<repository>
+			<id>pentaho-releases</id>
+			<url>https://nexus.pentaho.org/content/groups/omni/</url>
+		</repository>
+	</repositories>
 </project>
