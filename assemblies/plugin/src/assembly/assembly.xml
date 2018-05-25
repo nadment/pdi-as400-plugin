@@ -2,7 +2,7 @@
 	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.3 http://maven.apache.org/xsd/assembly-1.1.3.xsd">
-	<id>pdi-extension-as400-plugin</id>
+	<id>pdi-as400-plugin</id>
 	<formats>
 		<format>zip</format>
 	</formats>
@@ -11,12 +11,12 @@
 
 	<fileSets>
 		<fileSet>
-			<directory>${resources.directory}</directory>
+			<directory>${project.basedir}/src/main/resources</directory>
 			<outputDirectory>.</outputDirectory>
 			<filtered>true</filtered>
 		</fileSet>
 		<fileSet>
-			<directory>${assembly.directory}</directory>
+			<directory>${project.build.directory}/assembly</directory>
 			<outputDirectory>.</outputDirectory>
 		</fileSet>
 	</fileSets>
@@ -27,7 +27,7 @@
 		 	<useProjectArtifact>false</useProjectArtifact>
 		 	<scope>runtime</scope>			
 			<includes>
-				<include>org.pentaho.di.plugins:pdi-extension-as400-core:jar</include>
+				<include>org.pentaho.di.plugins:pdi-as400-core:jar</include>
 			</includes>
 		</dependencySet>
 		
