@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<project name="maven-antrun-" default="main"  >
-<target name="main">
-  <echo message="Installed the plugin in PDI installation in C:\pentaho\data-integration. To test, please restart Spoon."/>
-  <delete dir="C:\pentaho\data-integration/plugins/pdi-as400-plugin"/>
-  <mkdir dir="C:\pentaho\data-integration/plugins/pdi-as400-plugin"/>
-  <unzip src="C:\eclipse\workspace\pdi-extension\pdi-as400\assemblies\plugin\target/pdi-as400-plugin-8.0-SNAPSHOT.zip" dest="C:\pentaho\data-integration/plugins/pdi-as400-plugin"/>
-</target>
-</project>
