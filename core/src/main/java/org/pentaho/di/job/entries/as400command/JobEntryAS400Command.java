@@ -47,7 +47,7 @@ import com.ibm.as400.access.CommandCall;
     name = "JobEntryAS400Command.Name",
     description = "JobEntryAS400Command.Description",
     categoryDescription = "i18n:org.pentaho.di.job:JobCategory.Category.Utility",
-    documentationUrl = "https://help.pentaho.com")
+    documentationUrl = "https://github.com/nadment/pdi-as400/wiki")
 
 public class JobEntryAS400Command extends JobEntryBase implements Cloneable, JobEntryInterface {
 
