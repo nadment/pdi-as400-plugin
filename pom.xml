@@ -25,7 +25,6 @@
 	</developers>
 
 	<properties>
-		<project.pluginId>pdi-as400</project.pluginId>
 		<pdi.version>8.0-SNAPSHOT</pdi.version>
 		<pdi.home>C:\pentaho\data-integration</pdi.home>
 	</properties>
