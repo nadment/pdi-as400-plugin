@@ -2,6 +2,8 @@
 
 This plugin provide PDI job entrie for executing a AS/400 CL Commands.
 
+![Image](https://github.com/nadment/pdi-as400/blob/master/core/src/main/resources/as400command.svg)
+
 # System Requirements #
 
 Pentaho Data Integration 8.0 or above
