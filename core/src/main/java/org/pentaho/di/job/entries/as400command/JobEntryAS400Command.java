@@ -182,11 +182,8 @@ public class JobEntryAS400Command extends JobEntryBase implements Cloneable, Job
   }
 
   @Override
-  public Result execute(Result previousResult, int nr) throws KettleException {
+  public Result execute(final Result result, int nr) throws KettleException {
 
-    Result result = previousResult;
-    result.setNrErrors(1);
-    result.setResult(false);
     AS400 system = null;
 
     if (isBasic()) {
@@ -225,18 +222,23 @@ public class JobEntryAS400Command extends JobEntryBase implements Cloneable, Job
 
       if (success) {
         if (isBasic()) {
+
           logBasic(BaseMessages.getString(PKG, "JobEntryAS400Command.Log.CommandSuccess", serverString, commandString));
         }
+        result.setNrErrors(0);
         result.setResult(true);
       } else {
         logError(BaseMessages.getString(PKG, "JobEntryAS400Command.Log.CommandFailure", serverString, commandString));
 
+        
         // Get the command results
         AS400Message[] messageList = commandCall.getMessageList();
         for (AS400Message message : messageList) {
           logError(message.getText());
           logError(message.getHelp());
         }
+        result.setNrErrors(1);
+        result.setResult(false);
       }
     } catch (Exception e) {
       logError(BaseMessages.getString(PKG, "JobEntryAS400Command.Log.CommandFailure", serverString, commandString), e);
