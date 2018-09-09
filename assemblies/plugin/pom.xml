@@ -7,11 +7,10 @@
 	<parent>
 		<groupId>org.pentaho.di.plugins</groupId>
 		<artifactId>pdi-as400-assemblies</artifactId>
-		<version>8.0-SNAPSHOT</version>
+		<version>1.0.0</version>
 	</parent>
 
 	<artifactId>pdi-as400-plugin</artifactId>
-	<version>8.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>PDI AS400 Plugin Distribution</name>
 	<description>PDI AS400 Plugin</description>
