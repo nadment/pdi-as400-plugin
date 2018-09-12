@@ -15,7 +15,7 @@ Pentaho Data Integration 8.0 or above
 
 ### Using Pentaho Marketplace
 
-1. In the [Pentaho Marketplace] (http://www.pentaho.com/marketplace) find the AS400 plugin and click Install
+1. In the [Pentaho Marketplace](http://www.pentaho.com/marketplace) find the AS400 plugin and click Install
 2. Restart Spoon
 
 ### Manual Install
