@@ -15,12 +15,12 @@ Pentaho Data Integration 8.0 or above
 
 ### Using Pentaho Marketplace
 
-1. In the [Pentaho Marketplace](http://www.pentaho.com/marketplace) find the AS400 plugin and click Install
+1. Find the plugin in the [Pentaho Marketplace](http://www.pentaho.com/marketplace) and click Install
 2. Restart Spoon
 
 ### Manual Install
 
-1. Place the pdi-as400 folder in the ${DI\_HOME}/plugins/ directory
+1. Place the “pdi-as400” folder in the ${DI\_HOME}/plugins/ directory
 2. Restart Spoon
 
 ## Documentation
