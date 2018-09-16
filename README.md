@@ -26,7 +26,7 @@ Pentaho Data Integration 8.0 or above
 
 ## Documentation
 
-[PDI AS/400 Plugin Wiki](https://github.com/nadment/pdi-as400/wiki)
+[See Plugin Wiki](https://github.com/nadment/pdi-as400-plugin/wiki)
 
 ## Support
 
@@ -34,6 +34,6 @@ This plugin for PDI is provided “as is”, without any warranties, expressed o
 
 ## License
 
-Licensed under the Apache License, Version 2.0. See LICENSE.txt for more information.
+Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 

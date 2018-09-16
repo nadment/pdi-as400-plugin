@@ -1,18 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.pentaho.di.plugins</groupId>
-    	<artifactId>pdi-plugins</artifactId>
-		<version>8.0-SNAPSHOT</version>
+		<artifactId>pentaho-ce-jar-parent-pom</artifactId>
+		<groupId>org.pentaho</groupId>
+		<version>8.1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>pdi-as400</artifactId>
-	<packaging>pom</packaging>
-	<name>PDI AS400</name>
+	<groupId>org.pentaho.di.plugins</groupId>
+	<artifactId>pdi-as400-plugin</artifactId>
+	<version>1.0.1</version>
+	<url>http://github.com/nadment/pdi-as400-plugin</url>
+
+	<organization>
+		<name>Nicolas ADMENT</name>
+		<url>ttps://github.com/nadment</url>
+	</organization>
 
 	<developers>
 		<developer>
@@ -24,27 +28,243 @@
 		</developer>
 	</developers>
 
-	<properties>
-		<pdi.version>8.0-SNAPSHOT</pdi.version>
-		<pdi.home>C:\pentaho\data-integration</pdi.home>
-	</properties>
-
-	<modules>
-		<module>core</module>
-		<module>assemblies</module>
-	</modules>
-
 	<scm>
-		<developerConnection>scm:git:git@github.com:nadment/pdi-as400</developerConnection>
-		<url>https://github.com/nadment/pdi-as400</url>
+		<developerConnection>scm:git:git@github.com:nadment/pdi-as400-plugin</developerConnection>
+		<url>https://github.com/nadment/pdi-as400-plugin</url>
 	</scm>
 
-	<repositories>
-		<repository>
-			<id>pentaho-releases</id>
-			<url>https://nexus.pentaho.org/content/groups/omni/</url>
-		</repository>
-	</repositories>
-	<version>1.0.0</version>
-	<groupId>org.pentaho.di.plugins</groupId>
+	<properties>
+		<license.licenseName>apache_v2</license.licenseName>
+
+		<pdi.version>8.1.0.0-SNAPSHOT</pdi.version>
+		<pdi.home>C:\pentaho\data-integration</pdi.home>
+
+		<!-- Pentaho dependencies -->
+		<org.eclipse.swt.version>4.6</org.eclipse.swt.version>
+		<org.eclipse.jface.version>3.3.0-I20070606-0010</org.eclipse.jface.version>
+
+		<!-- Third-party dependencies -->
+		<commons-lang.version>2.6</commons-lang.version>
+		<commons-vfs2.version>2.1-20150824</commons-vfs2.version>
+	</properties>
+
+	<build>
+
+
+
+		<pluginManagement>
+			<plugins>
+				<!-- This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.jacoco</groupId>
+										<artifactId>
+											jacoco-maven-plugin
+										</artifactId>
+										<versionRange>
+											[0.7.2.201409121644,)
+										</versionRange>
+										<goals>
+											<goal>prepare-agent</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>distro-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<finalName>${project.artifactId}-${project.version}</finalName>
+							<appendAssemblyId>false</appendAssemblyId>
+							<descriptors>
+								<descriptor>assembly/plugin.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<executions>
+					<!-- Prepares the property pointing to the JaCoCo runtime agent which 
+						is passed as VM argument when Maven the Surefire plugin is executed. -->
+					<execution>
+						<id>pre-unit-test</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+						<configuration>
+							<!-- Sets the path to the file which contains the execution data. -->
+							<destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
+							<!-- Sets the name of the property containing the settings for JaCoCo 
+								runtime agent. -->
+							<propertyName>surefireArgLine</propertyName>
+						</configuration>
+					</execution>
+					<!-- Ensures that the code coverage report for unit tests is created 
+						after unit tests have been run. -->
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<!-- Sets the path to the file which contains the execution data. -->
+							<dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
+							<!-- Sets the output directory for the code coverage report. -->
+							<outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<!-- Sets the VM argument line used when unit tests are run. -->
+					<argLine>${surefireArgLine}</argLine>
+					<!-- Skips unit tests if the value of skip.unit.tests property is true -->
+					<skipTests>${skip.unit.tests}</skipTests>
+					<!-- Excludes integration tests when unit tests are run. -->
+					<excludes>
+						<exclude>**/IT*.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<echo
+									message="Installed the plugin in PDI installation in ${pdi.home}. To test, please restart Spoon." />
+
+								<!-- remove previous installations -->
+								<delete dir="${pdi.home}/plugins/${project.artifactId}" />
+
+								<!-- put fresh files in place -->
+								<mkdir dir="${pdi.home}/plugins/${project.artifactId}" />
+								<unzip
+									src="${project.build.directory}/${project.artifactId}-${project.version}.zip"
+									dest="${pdi.home}/plugins/" />
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>pentaho-kettle</groupId>
+			<artifactId>kettle-engine</artifactId>
+			<version>${pdi.version}</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>*</artifactId>
+					<groupId>*</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>pentaho-kettle</groupId>
+			<artifactId>kettle-core</artifactId>
+			<version>${pdi.version}</version>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>*</artifactId>
+					<groupId>*</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>pentaho-kettle</groupId>
+			<artifactId>kettle-ui-swt</artifactId>
+			<version>${pdi.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>pentaho</groupId>
+			<artifactId>metastore</artifactId>
+			<scope>provided</scope>
+			<version>${pdi.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>*</artifactId>
+					<groupId>*</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.jt400</groupId>
+			<artifactId>jt400</artifactId>
+			<version>9.4</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- test dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>pentaho-kettle</groupId>
+			<artifactId>kettle-engine</artifactId>
+			<version>${pdi.version}</version>
+			<classifier>tests</classifier>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>*</artifactId>
+					<groupId>*</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+	</dependencies>
+
+
+	<name>PDI AS400 Plugin</name>
 </project>

@@ -1,0 +1,5 @@
+1.0.1 # nadment 2018/09/14
+- Fix path in zip file for use with marketplace
+
+1.0.0 # nadment 2018/09/11
+- Initial release
