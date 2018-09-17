@@ -5,7 +5,7 @@
 
 This plugin provide PDI job entrie for executing a AS/400 CL Commands.
 
-![Image](https://github.com/nadment/pdi-as400-plugin/blob/master/core/src/main/resources/as400command.svg)
+![Image](https://github.com/nadment/pdi-as400-plugin/blob/master/src/main/resources/as400command.svg)
 
 
 ## How to install #
