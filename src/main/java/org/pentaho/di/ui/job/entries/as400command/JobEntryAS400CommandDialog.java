@@ -34,19 +34,19 @@ public class JobEntryAS400CommandDialog extends AbstractJobEntryDialog<JobEntryA
 
 	private static Class<?> PKG = JobEntryAS400Command.class;
 
-	private Button wTest;
+	private Button btnTest;
 
-	private LabelTextVar wServerName;
+	private LabelTextVar txtServerName;
 
-	private LabelTextVar wUserName;
+	private LabelTextVar txtUserName;
 
-	private LabelTextVar wPassword;
+	private LabelTextVar txtPassword;
 
-	private LabelTextVar wProxyHost;
+	private LabelTextVar txtProxyHost;
 
-	private LabelTextVar wProxyPort;
+	private LabelTextVar txtProxyPort;
 
-	private LabelTextVar wCommand;
+	private LabelTextVar txtCommand;
 
 	public JobEntryAS400CommandDialog(Shell parent, JobEntryInterface jobEntry, Repository rep, JobMeta jobMeta) {
 		super(parent, jobEntry, rep, jobMeta);
@@ -71,11 +71,11 @@ public class JobEntryAS400CommandDialog extends AbstractJobEntryDialog<JobEntryA
 
 	protected void onTestPressed() {
 
-		String server = wServerName.getText();
-		String user = wUserName.getText();
-		String password = wPassword.getText();
-		String proxyHost = wProxyHost.getText();
-		String proxyPort = wProxyPort.getText();
+		String server = txtServerName.getText();
+		String user = txtUserName.getText();
+		String password = txtPassword.getText();
+		String proxyHost = txtProxyHost.getText();
+		String proxyPort = txtProxyPort.getText();
 
 		try {
 			this.getJobEntry().test(server, user, password, proxyHost, proxyPort);
@@ -100,10 +100,10 @@ public class JobEntryAS400CommandDialog extends AbstractJobEntryDialog<JobEntryA
 
 		super.createButtonsForButtonBar(parent);
 
-		wTest = new Button(parent, SWT.PUSH);
-		wTest.setText(BaseMessages.getString(PKG, "JobEntryAS400CommandDialog.TestConnection.Label"));
-		wTest.setLayoutData(new FormDataBuilder().bottom().right(wOK, -ConstUI.SMALL_MARGIN).result());
-		wTest.addListener(SWT.Selection, new Listener() {
+		btnTest = new Button(parent, SWT.PUSH);
+		btnTest.setText(BaseMessages.getString(PKG, "JobEntryAS400CommandDialog.TestConnection.Label"));
+		btnTest.setLayoutData(new FormDataBuilder().bottom().right(wOK, -ConstUI.SMALL_MARGIN).result());
+		btnTest.addListener(SWT.Selection, new Listener() {
 			@Override
 			public void handleEvent(Event e) {
 				onTestPressed();
@@ -134,29 +134,29 @@ public class JobEntryAS400CommandDialog extends AbstractJobEntryDialog<JobEntryA
 		props.setLook(systemGroup);
 
 		// Widget ServerName
-		wServerName = new LabelTextVar(jobMeta, systemGroup,
+		txtServerName = new LabelTextVar(jobMeta, systemGroup,
 				BaseMessages.getString(PKG, "JobEntryAS400CommandDialog.Server.Label"),
 				BaseMessages.getString(PKG, "JobEntryAS400CommandDialog.Server.Tooltip"));
-		wServerName.addModifyListener(lsMod);
-		wServerName.setLayoutData(new FormDataBuilder().top().fullWidth().result());
-		props.setLook(wServerName);
+		txtServerName.addModifyListener(lsMod);
+		txtServerName.setLayoutData(new FormDataBuilder().top().fullWidth().result());
+		props.setLook(txtServerName);
 
 		// Widget UserName
-		wUserName = new LabelTextVar(jobMeta, systemGroup,
+		txtUserName = new LabelTextVar(jobMeta, systemGroup,
 				BaseMessages.getString(PKG, "JobEntryAS400CommandDialog.User.Label"),
 				BaseMessages.getString(PKG, "JobEntryAS400CommandDialog.User.Tooltip"));
-		wUserName.setLayoutData(new FormDataBuilder().top(wServerName).fullWidth().result());
-		wUserName.addModifyListener(lsMod);
-		props.setLook(wUserName);
+		txtUserName.setLayoutData(new FormDataBuilder().top(txtServerName).fullWidth().result());
+		txtUserName.addModifyListener(lsMod);
+		props.setLook(txtUserName);
 
 		// Widget Password
-		wPassword = new LabelTextVar(jobMeta, systemGroup,
+		txtPassword = new LabelTextVar(jobMeta, systemGroup,
 				BaseMessages.getString(PKG, "JobEntryAS400CommandDialog.Password.Label"),
 				BaseMessages.getString(PKG, "JobEntryAS400CommandDialog.Password.Tooltip"));
-		wPassword.setEchoChar('*');
-		wPassword.setLayoutData(new FormDataBuilder().top(wUserName).fullWidth().result());
-		wPassword.addModifyListener(lsMod);
-		props.setLook(wPassword);
+		txtPassword.setEchoChar('*');
+		txtPassword.setLayoutData(new FormDataBuilder().top(txtUserName).fullWidth().result());
+		txtPassword.addModifyListener(lsMod);
+		props.setLook(txtPassword);
 
 		Group proxyGroup = new Group(parent, SWT.SHADOW_NONE);
 		proxyGroup.setText(BaseMessages.getString(PKG, "JobEntryAS400CommandDialog.Proxy.Group.Label"));
@@ -168,20 +168,20 @@ public class JobEntryAS400CommandDialog extends AbstractJobEntryDialog<JobEntryA
 		props.setLook(proxyGroup);
 
 		// Widget proxy host
-		wProxyHost = new LabelTextVar(jobMeta, proxyGroup,
+		txtProxyHost = new LabelTextVar(jobMeta, proxyGroup,
 				BaseMessages.getString(PKG, "JobEntryAS400CommandDialog.ProxyHost.Label"),
 				BaseMessages.getString(PKG, "JobEntryAS400CommandDialog.ProxyHost.Tooltip"));
-		wProxyHost.addModifyListener(lsMod);
-		wProxyHost.setLayoutData(new FormDataBuilder().top().fullWidth().result());
-		props.setLook(wProxyHost);
+		txtProxyHost.addModifyListener(lsMod);
+		txtProxyHost.setLayoutData(new FormDataBuilder().top().fullWidth().result());
+		props.setLook(txtProxyHost);
 
 		// Widget UserName
-		wProxyPort = new LabelTextVar(jobMeta, proxyGroup,
+		txtProxyPort = new LabelTextVar(jobMeta, proxyGroup,
 				BaseMessages.getString(PKG, "JobEntryAS400CommandDialog.ProxyPort.Label"),
 				BaseMessages.getString(PKG, "JobEntryAS400CommandDialog.ProxyPort.Tooltip"));
-		wProxyPort.setLayoutData(new FormDataBuilder().top(wProxyHost).fullWidth().result());
-		wProxyPort.addModifyListener(lsMod);
-		props.setLook(wProxyPort);
+		txtProxyPort.setLayoutData(new FormDataBuilder().top(txtProxyHost).fullWidth().result());
+		txtProxyPort.addModifyListener(lsMod);
+		props.setLook(txtProxyPort);
 
 		Group commandGroup = new Group(parent, SWT.SHADOW_NONE);
 		commandGroup.setText(BaseMessages.getString(PKG, "JobEntryAS400CommandDialog.Command.Group.Label"));
@@ -193,12 +193,12 @@ public class JobEntryAS400CommandDialog extends AbstractJobEntryDialog<JobEntryA
 		props.setLook(commandGroup);
 
 		// Widget Command
-		wCommand = new LabelTextVar(jobMeta, commandGroup,
+		txtCommand = new LabelTextVar(jobMeta, commandGroup,
 				BaseMessages.getString(PKG, "JobEntryAS400CommandDialog.Command.Label"),
 				BaseMessages.getString(PKG, "JobEntryAS400CommandDialog.Command.Tooltip"));
-		wCommand.setLayoutData(new FormDataBuilder().fullWidth().result());
-		wCommand.addModifyListener(lsMod);
-		props.setLook(wCommand);
+		txtCommand.setLayoutData(new FormDataBuilder().fullWidth().result());
+		txtCommand.addModifyListener(lsMod);
+		props.setLook(txtCommand);
 
 		return parent;
 	}
@@ -211,23 +211,23 @@ public class JobEntryAS400CommandDialog extends AbstractJobEntryDialog<JobEntryA
 	@Override
 	protected void loadMeta(JobEntryAS400Command jobEntry) {
 
-		wServerName.setText(Const.NVL(jobEntry.getServerName(), ""));
-		wUserName.setText(Const.NVL(jobEntry.getUserName(), ""));
-		wPassword.setText(Const.NVL(jobEntry.getPassword(), ""));
-		wCommand.setText(Const.NVL(jobEntry.getCommand(), ""));
-		wProxyHost.setText(Const.NVL(jobEntry.getProxyHost(), ""));
-		wProxyPort.setText(Const.NVL(jobEntry.getProxyPort(), ""));
+		txtServerName.setText(Const.NVL(jobEntry.getServerName(), ""));
+		txtUserName.setText(Const.NVL(jobEntry.getUserName(), ""));
+		txtPassword.setText(Const.NVL(jobEntry.getPassword(), ""));
+		txtCommand.setText(Const.NVL(jobEntry.getCommand(), ""));
+		txtProxyHost.setText(Const.NVL(jobEntry.getProxyHost(), ""));
+		txtProxyPort.setText(Const.NVL(jobEntry.getProxyPort(), ""));
 	}
 
 	@Override
 	protected void saveMeta(JobEntryAS400Command jobEntry) {
 
-		jobEntry.setServerName(wServerName.getText());
-		jobEntry.setUserName(wUserName.getText());
-		jobEntry.setPassword(wPassword.getText());
-		jobEntry.setCommand(wCommand.getText());
-		jobEntry.setProxyHost(wProxyHost.getText());
-		jobEntry.setProxyPort(wProxyPort.getText());
+		jobEntry.setServerName(txtServerName.getText());
+		jobEntry.setUserName(txtUserName.getText());
+		jobEntry.setPassword(txtPassword.getText());
+		jobEntry.setCommand(txtCommand.getText());
+		jobEntry.setProxyHost(txtProxyHost.getText());
+		jobEntry.setProxyPort(txtProxyPort.getText());
 	}
 
 }
