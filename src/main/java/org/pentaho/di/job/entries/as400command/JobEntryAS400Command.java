@@ -272,12 +272,12 @@ public class JobEntryAS400Command extends JobEntryBase implements Cloneable, Job
     StringBuilder xml = new StringBuilder(100);
 
     xml.append(super.getXML());
-    xml.append('\t').append(XMLHandler.addTagValue(TAG_SERVER, server));
-    xml.append('\t').append(XMLHandler.addTagValue(TAG_USER, user));
-    xml.append('\t').append(XMLHandler.addTagValue(TAG_PASSWORD, Encr.encryptPasswordIfNotUsingVariables(password)));
-    xml.append('\t').append(XMLHandler.addTagValue(TAG_PROXY_HOST, proxyHost));
-    xml.append('\t').append(XMLHandler.addTagValue(TAG_PROXY_PORT, proxyPort));
-    xml.append('\t').append(XMLHandler.addTagValue(TAG_COMMAND, command));
+    xml.append(XMLHandler.addTagValue(TAG_SERVER, server));
+    xml.append(XMLHandler.addTagValue(TAG_USER, user));
+    xml.append(XMLHandler.addTagValue(TAG_PASSWORD, Encr.encryptPasswordIfNotUsingVariables(password)));
+    xml.append(XMLHandler.addTagValue(TAG_PROXY_HOST, proxyHost));
+    xml.append(XMLHandler.addTagValue(TAG_PROXY_PORT, proxyPort));
+    xml.append(XMLHandler.addTagValue(TAG_COMMAND, command));
 
     return xml.toString();
   }
