@@ -51,7 +51,7 @@ import com.ibm.as400.access.CommandCall;
 
 public class JobEntryAS400Command extends JobEntryBase implements Cloneable, JobEntryInterface {
 
-  private static Class<?> PKG = JobEntryAS400Command.class;
+  private static final Class<?> PKG = JobEntryAS400Command.class;
 
   private static final String TAG_SERVER = "server"; //$NON-NLS-1$
  

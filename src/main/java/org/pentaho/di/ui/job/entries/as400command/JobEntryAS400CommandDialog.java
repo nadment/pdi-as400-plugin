@@ -32,7 +32,7 @@ import org.pentaho.di.ui.core.widget.LabelTextVar;
 public class JobEntryAS400CommandDialog extends AbstractJobEntryDialog<JobEntryAS400Command>
 		implements JobEntryDialogInterface {
 
-	private static Class<?> PKG = JobEntryAS400Command.class;
+	private static final Class<?> PKG = JobEntryAS400Command.class;
 
 	private Button btnTest;
 
