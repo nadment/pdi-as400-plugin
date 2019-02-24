@@ -1,4 +1,4 @@
-package org.pentaho.di.dialog;
+package org.kettle.dialog;
 
 import org.eclipse.jface.fieldassist.ControlDecoration;
 import org.eclipse.jface.fieldassist.FieldDecorationRegistry;

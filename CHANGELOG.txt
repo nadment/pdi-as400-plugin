@@ -1,3 +1,7 @@
+1.0.2 # nadment 2019/02/24
+- move package to org.kettle
+- add annotation @PluginDialog 
+
 1.0.1 # nadment 2018/09/14
 - Fix path in zip file for use with marketplace
 

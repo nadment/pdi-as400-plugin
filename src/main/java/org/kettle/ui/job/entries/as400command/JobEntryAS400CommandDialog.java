@@ -1,4 +1,4 @@
-package org.pentaho.di.ui.job.entries.as400command;
+package org.kettle.ui.job.entries.as400command;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -14,13 +14,14 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
+import org.kettle.dialog.AbstractJobEntryDialog;
+import org.kettle.job.entries.as400command.JobEntryAS400Command;
 import org.pentaho.di.core.Const;
 import org.pentaho.di.core.Props;
+import org.pentaho.di.core.annotations.PluginDialog;
 import org.pentaho.di.core.util.Utils;
-import org.pentaho.di.dialog.AbstractJobEntryDialog;
 import org.pentaho.di.i18n.BaseMessages;
 import org.pentaho.di.job.JobMeta;
-import org.pentaho.di.job.entries.as400command.JobEntryAS400Command;
 import org.pentaho.di.job.entry.JobEntryDialogInterface;
 import org.pentaho.di.job.entry.JobEntryInterface;
 import org.pentaho.di.repository.Repository;
@@ -29,6 +30,7 @@ import org.pentaho.di.ui.core.FormDataBuilder;
 import org.pentaho.di.ui.core.PropsUI;
 import org.pentaho.di.ui.core.widget.LabelTextVar;
 
+@PluginDialog(id = "AS400Command", image = "as400command.svg", pluginType = PluginDialog.PluginType.JOBENTRY, documentationUrl = "https://github.com/nadment/pdi-as400-plugin/wiki")
 public class JobEntryAS400CommandDialog extends AbstractJobEntryDialog<JobEntryAS400Command>
 		implements JobEntryDialogInterface {
 
